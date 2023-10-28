@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <title>Botol</title>
+  </head>
+  <body class="body">
+    <div id="root">
+      <div class="page">
+        <div class="ds_flex">
+          <a href="../JenisSampah.php"><img id="back" src="..\img\Back.svg" /></a>
+          <p id="tlt4">Estimasi</p>
+        </div>
+        <div class="centered">
+          <img src="../img\Icon_botol.svg" alt="" />
+        </div>
+        <div class="left">
+          <div class="pls_rect">
+            <p class="txt_center">Botol</p>
+          </div>
+        </div>
+
+        <b class="left">Harga</b>
+        <div class="right" id="hrg">2000 Pts/Kg</div>
+        <br /><br />
+        <div class="left">
+          <p class="desc">
+            Botol adalah wadah yang terbuat dari berbagai bahan seperti plastik,
+            kaca, atau logam, digunakan untuk menyimpan dan mengemas cairan atau
+            benda. Botol memiliki kegunaan yang luas dalam kehidupan
+            sehari-hari, baik sebagai wadah minuman, obat-obatan, atau produk
+            kecantikan. Namun, penting untuk memperhatikan dampak lingkungan
+            yang dihasilkan oleh botol plastik. Dengan melakukan daur ulang
+            botol, kita dapat mengurangi jumlah limbah plastik yang mencemari
+            lingkungan dan membantu menjaga kebersihan bumi. Daur ulang botol
+            memungkinkan bahan baku tersebut digunakan kembali untuk membuat
+            botol baru, sehingga mengurangi penggunaan sumber daya alam yang
+            semakin berkurang dan mengurangi dampak negatif terhadap lingkungan.
+          </p>
+        </div>
+        <br />
+        <form action="../sttrans.php" method="post" name="senddata">
+          <div class="left">
+            <div class="ds_flex">
+              <p>
+                <button type="button" onclick="down()" id="dwbtn">-</button><input type="text" name="berat" id="brt" placeholder="..." style="width: 20px; text-align: center" value="0" /><button
+                  onclick="up()"
+                  type="button"
+                  style="width: 23.36px"
+                >
+                  +
+                </button>
+                (Kg)
+              </p>
+              <p class="centered">&nbsp &nbsp &nbsp &nbsp &nbsp Total Points: <input type="text" name="points" id="points" value="0" placeholder="..." style="width: 50px; text-align: end; border: 0px" />pts</p>
+            </div>
+          </div>
+          <div class="centered">
+            <button disabled="true" type="submit" id="pls_btn" class="btn_gr" name="Botol">Tambah</button>
+          </div>
+        </form>
+        </div>
+        <div class="tmh_img"></div>
+        &nbsp
+      </div>
+    </div>
+    <script>
+      function up() {
+        var elem = document.getElementById("brt");
+        var elem1 = document.getElementById("points");
+        var btn = document.getElementById("pls_btn");
+        let n = parseInt(elem.value);
+        let m = parseInt(elem1.value);
+        n = n + 1;
+        m = n * 2000;
+        elem.value = n.toString();
+        elem1.value = m.toString();
+        btn.disabled = false;
+      }
+
+      function down() {
+        var elem = document.getElementById("brt");
+        var elem1 = document.getElementById("points");
+        var btn = document.getElementById("dwbtn");
+        var btn1 = document.getElementById("pls_btn");
+        let n = parseInt(elem.value);
+        let m = parseInt(elem1.value);
+        n = n - 1;
+        if (n <= 0) {
+          n = 0;
+          m = n * 2000;
+          elem.value = n.toString();
+          elem1.value = m.toString();
+          btn1.disabled = true;
+        } else {
+          m = n * 2000;
+          elem.value = n.toString();
+          elem1.value = m.toString();
+          btn1.disabled = false;
+        }
+      }
+    </script>
+  </body>
+</html>
